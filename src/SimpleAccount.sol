@@ -32,7 +32,7 @@ contract SimpleAccount is BaseAccount, UUPSUpgradeable, Initializable {
         return _entryPoint;
     }
 
-    IEntryPoint private immutable _entryPoint;
+    IEntryPoint private _entryPoint;
 
     event SimpleAccountInitialized(IEntryPoint indexed entryPoint, address indexed owner);
 
@@ -77,12 +77,13 @@ contract SimpleAccount is BaseAccount, UUPSUpgradeable, Initializable {
      * an account must have a method for replacing the entryPoint, in case the the entryPoint is
      * upgraded to a newer version.
      */
-    function initialize(address anOwner) public virtual initializer {
-        _initialize(anOwner);
+    function initialize(address anOwner, IEntryPoint anEntryPoint) public virtual initializer {
+        _initialize(anOwner, anEntryPoint);
     }
 
-    function _initialize(address anOwner) internal virtual {
+    function _initialize(address anOwner, IEntryPoint anEntryPoint) internal virtual {
         owner = anOwner;
+        _entryPoint = anEntryPoint;
         emit SimpleAccountInitialized(_entryPoint, owner);
     }
 

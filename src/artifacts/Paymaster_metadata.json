@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_usdc",
+						"name": "_subscriptionToken",
 						"type": "address"
 					},
 					{
@@ -500,11 +500,11 @@
 			]
 		},
 		"src/Paymaster.sol": {
-			"keccak256": "0x26ae0d0d8a2d587ec9d804fc722c627e24ab521ed51160719e7e7367543fae9c",
+			"keccak256": "0x8dc6de66888ade5866e0fb1a644412d8f4ad79295abadd068de5fd7c54d83a09",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://600a41410f7b91762eee0d27528c08ef24838c72403941fe9bd55940e2a1a278",
-				"dweb:/ipfs/QmPYVGg3JBSii2K4A6ocDz7VtXupvDcdsjSHgaDqk3xmvM"
+				"bzz-raw://9104460355276a3923a60a6ea357532745a7d6f8ac497f757ef34427197b18b3",
+				"dweb:/ipfs/QmWPEknbtH4KFKAQekiFEvzUd4JeNwCzme85ERxpifXUMD"
 			]
 		},
 		"src/interfaces/IAggregator.sol": {

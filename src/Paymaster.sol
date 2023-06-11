@@ -10,18 +10,18 @@ import "./interfaces/UserOperation.sol";
 // if the user is in the list, approve the tx
 contract Paymaster is Ownable, BasePaymaster {
     uint256 public constant duration = 2678400;
-    uint256 public constant subscriptionFee = 20000000; // 20USDC
+    uint256 public constant subscriptionFee = 20000000000000000000; // 20 subscriptionTokens
     uint256 constant public COST_OF_POST = 35000;
-    ERC20 usdc;
+    ERC20 subscriptionToken;
 
     mapping(address => uint256) subscribers; // mapping from user to subscription start time
 
-    constructor(address _usdc, IEntryPoint _entryPoint) BasePaymaster(_entryPoint) {
-        usdc = ERC20(_usdc);
+    constructor(address _subscriptionToken, IEntryPoint _entryPoint) BasePaymaster(_entryPoint) {
+        subscriptionToken = ERC20(_subscriptionToken);
     }
 
     function subscribe() external {
-        usdc.transferFrom(msg.sender, address(this), subscriptionFee);
+        subscriptionToken.transferFrom(msg.sender, address(this), subscriptionFee);
         subscribers[msg.sender] = block.timestamp;
     }
 
@@ -30,8 +30,8 @@ contract Paymaster is Ownable, BasePaymaster {
     }
 
     function withdraw() external onlyOwner {
-        uint256 balance = usdc.balanceOf(address(this));
-        usdc.transfer(owner(), balance);
+        uint256 balance = subscriptionToken.balanceOf(address(this));
+        subscriptionToken.transfer(owner(), balance);
     }
 
     function _validatePaymasterUserOp(UserOperation calldata userOp, bytes32 userOpHash, uint256 maxCost)

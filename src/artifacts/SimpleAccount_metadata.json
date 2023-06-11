@@ -173,6 +173,11 @@
 						"internalType": "address",
 						"name": "anOwner",
 						"type": "address"
+					},
+					{
+						"internalType": "contract IEntryPoint",
+						"name": "anEntryPoint",
+						"type": "address"
 					}
 				],
 				"name": "initialize",
@@ -419,7 +424,7 @@
 				"getDeposit()": {
 					"notice": "check current account deposit in the entryPoint"
 				},
-				"initialize(address)": {
+				"initialize(address,address)": {
 					"notice": "change entry-point: an account must have a method for replacing the entryPoint, in case the the entryPoint is upgraded to a newer version."
 				},
 				"nonce()": {
@@ -560,11 +565,11 @@
 			]
 		},
 		"src/SimpleAccount.sol": {
-			"keccak256": "0xb422e02ebabca5d98ceefd0c14e6f2501ed2fbafd5f77f0cc18943de5fb8a2f6",
+			"keccak256": "0x88e51af18abfa9102188661892ec23f54ef1b6fa57ef6d5b6933b8f27dba0683",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://aecc1be7fecf131b06ae37573e0f29b1b157b0ec0250032b83ce308de37d07f1",
-				"dweb:/ipfs/Qmbr94oQv1SHe3wGwLZjn3ozsrCbChy5vACsiCPDmv57F9"
+				"bzz-raw://3c77ed490d5b074c2f54f1fb5039ed25203d7c154bf9edc37870e3376e7c07a2",
+				"dweb:/ipfs/QmNakkKrnA62ALSaq7L4tKEyAq3K63iZ94eFE8RRe5JaXe"
 			]
 		},
 		"src/interfaces/IAccount.sol": {
